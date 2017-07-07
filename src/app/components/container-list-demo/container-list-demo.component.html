@@ -1,3 +1,42 @@
-<p>
-  container-list-demo works!
-</p>
+<div class="content-container">
+    <div class="content-area">
+        <clr-tabs>
+            <clr-tab-link>Result</clr-tab-link>
+            <clr-tab-link>Code</clr-tab-link>
+
+            <clr-tab-content>
+                <p *ngIf="users && users.length">
+                    Dynamically Injected Components List built from plain objects!
+                </p>
+                <ng-container container-list [mapKey]="'users:list'" [collection]="users"></ng-container>
+            </clr-tab-content>
+            <clr-tab-content>
+                <div class="content-container">
+                    <div class="content-area">
+                        <pre>
+<code clr-code-highlight="language-css" ngNonBindable>
+
+                      .some-component &#123;
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: space-between;
+                        align-items: center;
+                        flex-wrap: wrap;
+                      &#125;
+
+
+                  </code>
+              </pre>
+                    </div>
+                </div>
+            </clr-tab-content>
+        </clr-tabs>
+    </div>
+    <nav class="sidenav">
+        <section class="sidenav-content">
+            <a href="..." class="nav-link active">
+                    User List
+                </a>
+        </section>
+    </nav>
+</div>

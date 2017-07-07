@@ -4,6 +4,19 @@
  * The full license information can be found in LICENSE in the root directory of this project.
  */
 import { Component } from "@angular/core";
+import { ComponentMapService, ComponentMap } from 'component-containers'
+
+import { AdminUser } from './models/users/admin-user.model';
+import { MemberUser } from './models/users/member-user.model';
+import { NewUser } from './models/users/new-user.model';
+
+import { AdminUserLoginComponent } from './components/users/logins/admin-user.component'
+import { MemberUserLoginComponent } from './components/users/logins/member-user.component'
+import { NewUserLoginComponent } from './components/users/logins/new-user.component'
+
+import { AdminUserListItemComponent } from './components/users/list-items/admin-user.component';
+import { MemberUserListItemComponent } from './components/users/list-items/member-user.component';
+import { NewUserListItemComponent } from './components/users/list-items/new-user.component';
 
 @Component({
   selector: "component-containers-app",
@@ -18,36 +31,42 @@ export class AppComponent {
     this.closeMessage = "The alert has been closed";
   }
 
-  users: any[];
-  selected: any[] = [];
-  toAdd: any[] = [];
-  toDelete: any[] = [];
-  toEdit: any;
 
-  constructor() {
-    this.users = [
-      { name: "alice" },
-      { name: "bob" },
-      { name: "carol" },
-    ];
+  constructor(private componentMaps: ComponentMapService) {
+    let map = new ComponentMap([
+      {
+        model: AdminUser,
+        component: AdminUserLoginComponent
+      },
+      {
+        model: MemberUser,
+        component: MemberUserLoginComponent
+      },
+      {
+        model: NewUser,
+        component: NewUserLoginComponent
+      }
+    ]);
+    this.componentMaps.set('users:default', map);
+
+
+    map = new ComponentMap([
+      {
+        model: AdminUser,
+        component: AdminUserListItemComponent
+      },
+      {
+        model: MemberUser,
+        component: MemberUserListItemComponent
+      },
+      {
+        model: NewUser,
+        component: NewUserListItemComponent
+      }
+    ]);
+    this.componentMaps.set('users:list', map);
+
   }
 
-  onDelete() {
-    this.toDelete = this.selected.slice();
-    return false;
-  }
 
-  onEdit() {
-    this.toEdit = this.selected[0];
-    return false;
-  }
-
-  onAdd() {
-    this.toAdd = this.selected.slice();
-  }
-
-  selected1: boolean = false;
-  selected2: boolean = true;
-  selected3: boolean = true;
-  indeterminate1: boolean = true;
 }
