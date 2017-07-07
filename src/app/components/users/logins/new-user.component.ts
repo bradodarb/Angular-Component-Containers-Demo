@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { BaseComponent } from '../base.component';
 
 @Component({
   selector: 'app-new-user-login',
@@ -17,9 +18,9 @@ import { Component, OnInit } from '@angular/core';
     </form>
 </div>`
 })
-export class NewUserLoginComponent implements OnInit {
+export class NewUserLoginComponent extends BaseComponent implements OnInit {
 
-  constructor() { }
+  constructor() { super() }
 
   ngOnInit() {
 

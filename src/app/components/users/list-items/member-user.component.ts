@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { BaseComponent } from '../base.component';
 
 @Component({
   selector: 'app-member-user-list-item',
@@ -23,9 +24,9 @@ import { Component, OnInit } from '@angular/core';
         </div>
         `
 })
-export class MemberUserListItemComponent implements OnInit {
+export class MemberUserListItemComponent extends BaseComponent implements OnInit {
 
-  constructor() { }
+  constructor() { super() }
 
   ngOnInit() {
   }

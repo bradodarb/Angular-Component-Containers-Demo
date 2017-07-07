@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { BaseComponent } from '../base.component';
 
 @Component({
   selector: 'app-admin-user-login',
@@ -35,9 +36,9 @@ import { Component, OnInit } from '@angular/core';
     </form>
 </div>`
 })
-export class AdminUserLoginComponent implements OnInit {
+export class AdminUserLoginComponent extends BaseComponent implements OnInit {
 
-  constructor() { }
+  constructor() { super() }
 
   ngOnInit() {
   }

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { BaseComponent } from '../base.component';
 @Component({
   selector: 'app-admin-user-list-item',
   template: `
@@ -23,9 +23,9 @@ import { Component, OnInit } from '@angular/core';
         </div>
         `
 })
-export class AdminUserListItemComponent implements OnInit {
+export class AdminUserListItemComponent extends BaseComponent implements OnInit {
 
-  constructor() { }
+  constructor() { super() }
 
   ngOnInit() {
   }
