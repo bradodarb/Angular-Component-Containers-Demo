@@ -14,14 +14,41 @@ export class ContainerListDemoComponent implements OnInit {
 
 
   public users = [];
-  public code: string = '' +
-  `.some-component {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        align-items: center;
-        flex-wrap: wrap;
-    }`;
+
+  public codeMap = `map = new ComponentMap([
+      {
+        model: AdminUser,
+        component: AdminUserListItemComponent
+      },
+      {
+        model: MemberUser,
+        component: MemberUserListItemComponent
+      },
+      {
+        model: NewUser,
+        component: NewUserListItemComponent
+      }
+    ]);
+    this.componentMaps.set('users:list', map);`
+  public codeModels = `export class AdminUser {
+      public name: string;
+      public email: string;
+      public group: string;
+
+      constructor(name, email, group = 'Ops') {
+        this.name = name;
+        this.email = email;
+        this.group = group;
+      }
+    }
+
+    export class MemberUser {
+      ...
+    export class NewUser {
+      ...
+    `;
+  public codeDirective = ``;
+
   constructor() {
 
 

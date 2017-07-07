@@ -13,20 +13,31 @@
             <clr-tab-content>
                 <div class="content-container">
                     <div class="content-area">
+
+                        <h3>Define a map to render a Angular Components based on the model type you select</h3>
                         <pre>
-<code clr-code-highlight="language-css" ngNonBindable>
-
-                      .some-component &#123;
-                        display: flex;
-                        flex-direction: column;
-                        justify-content: space-between;
-                        align-items: center;
-                        flex-wrap: wrap;
-                      &#125;
+                            <code clr-code-highlight="language-javascript" [innerHTML]="codeMap">
 
 
-                  </code>
-              </pre>
+                            </code>
+                        </pre>
+
+                        <h3>Models are just classes...</h3>
+                        <pre>
+                            <code clr-code-highlight="language-javascript" [innerHTML]="codeModels">
+
+
+                            </code>
+                        </pre>
+
+                        <h3>Add a container where you want componets to be rendered for your models</h3>
+                        <pre>
+                            <code clr-code-highlight="language-html" ngNonBindable>
+                                &lt;ng-container container-list [mapKey]=&quot;'users:list'&quot; [collection]=&quot;users&quot;&gt;&lt;/ng-container&gt;
+
+                            </code>
+                        </pre>
+
                     </div>
                 </div>
             </clr-tab-content>

@@ -16,6 +16,40 @@ export class ContainerItemDemoComponent implements OnInit {
   public current: any;
 
   public users = [];
+
+  public codeMap = ` let map = new ComponentMap([
+      {
+        model: AdminUser,
+        component: AdminUserLoginComponent
+      },
+      {
+        model: MemberUser,
+        component: MemberUserLoginComponent
+      },
+      {
+        model: NewUser,
+        component: NewUserLoginComponent
+      }
+    ]);
+    this.componentMaps.set('users:default', map);`;
+  public codeModels = `export class AdminUser {
+      public name: string;
+      public email: string;
+      public group: string;
+
+      constructor(name, email, group = 'Ops') {
+        this.name = name;
+        this.email = email;
+        this.group = group;
+      }
+    }
+
+    export class MemberUser {
+      ...
+    export class NewUser {
+      ...
+    `;
+  public codeDirective = ``;
   constructor() {
 
 
